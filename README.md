@@ -26,7 +26,7 @@ Following the demonstration, in javascript, I added the type of characters the g
 
 ## Credits
 
-Instructor Samantha Randolph gave us a demo to get us started and had us finish the code, so there is some credit that goes to her.  The assignment started off with the document query to the generate ID, and also gave us the function for the end to have the results of the generator displayed to the html password box. She then started to write the generatepassword function, showed us how to write the window prompts and gave example of the for if statements and identifying the special characters.  She also showed us how to write the for loop and math codes.  
+Instructor Samantha Randolph gave us a demo to get us started and had us finish the code, so there is some credit that goes to her.  The assignment started off with the document query to the generate ID, and also gave us the function for the end to have the results of the generator displayed to the html password box plus the event listener for the write password. She then started to write the generatepassword function, showed us how to write the window prompts and gave example of the for if statements and identifying the special characters.  She also showed us how to write the for loop and math codes.  
 
 ## License
 

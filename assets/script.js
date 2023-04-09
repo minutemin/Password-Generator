@@ -59,7 +59,7 @@ function generatePassword () {
         results += randomCharacter;
     }
 
-// Return generated password
+// Return generated password to end it
     return results;
 }
 
