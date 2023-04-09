@@ -22,28 +22,32 @@ function generatePassword () {
 // Alert user that they must selected OK for at least one of these criterias, send them message if they don't pick at least one. 
     if (!lowercasePick && !uppercasePick && !numberPick && !specialPick) {
         alert("Sorry, please pick at least one type of character for your password.");
-        return "";
+        return;
     } 
 
 // Identify the letters, numbers, and special characters that could be chosen for random password. Also create a variable for empty index.
-    let passwordCharacters = [];
-    const lowercaseList = "abcdefghijklmnopqrstuvwxyz";
+   
+    const lowercaseList = "acdefghijklmnopqrstuvwxyz";
     const uppercaseList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const numberList = "0123456789";
     const specialList = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-
+    let passwordCharacters = [];
+    
 // If user picks their criteria to be included in password, then the password will add the chosen characters to the password minus any decibels. Randomizing happens next in the math formula. 
-    if (specialPick) {
-        passwordCharacters = passwordCharacters.concat(specialList.split(""));
-    }
     if (lowercasePick) {
         passwordCharacters = passwordCharacters.concat(lowercaseList.split(""));
     }
+
     if (uppercasePick) {
         passwordCharacters = passwordCharacters.concat(uppercaseList.split(""));
     }
+
     if (numberPick) {
         passwordCharacters = passwordCharacters.concat(numberList.split(""));
+    }
+
+    if (specialPick) {
+        passwordCharacters = passwordCharacters.concat(specialList.split(""));
     }
 
 // Generate random password.  "results" equals to empty string that is to be filled by generator.
@@ -65,6 +69,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
-
+ 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

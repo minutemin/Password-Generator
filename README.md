@@ -22,12 +22,11 @@ When selecting all of the user's options, the generator will randomly pick chara
 
 ## What I did:
 
-
+Following the demonstration, in javascript, I added the type of characters the generator would be picking from randomly. This consists of uppercase and lowercase letters, numbers and special characters. We establish a new object called "password characters" as an empty array. Then I added "if statements" for each of the types if characters the password characters would get picked from.  Split command is added after concating the group of character type to passwordCharacter so that the type of characters in each string can break up into it's own array, for passwordCharacters object. I then I created an if statement for each of the types of character so within those statements the passwordCharacter can add to. Cleaned up and double checked my code, plus ran it with various options to see if there were any bugs.  
 
 ## Credits
 
-Instructor Samantha Randolph gave us a demo to get us started and had us finish the code, so there is some credit that goes to her.
-
+Instructor Samantha Randolph gave us a demo to get us started and had us finish the code, so there is some credit that goes to her.  The assignment started off with the document query to the generate ID, and also gave us the function for the end to have the results of the generator displayed to the html password box. She then started to write the generatepassword function, showed us how to write the window prompts and gave example of the for if statements and identifying the special characters.  She also showed us how to write the for loop and math codes.  
 
 ## License
 
