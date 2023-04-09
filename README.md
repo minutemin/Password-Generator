@@ -26,7 +26,7 @@ When selecting all of the user's options, the generator will randomly pick chara
 
 ## Credits
 
-Instructor Samantha Randolph gave us a demo to get us started and had us finish the code, so credit goes to her.
+Instructor Samantha Randolph gave us a demo to get us started and had us finish the code, so there is some credit that goes to her.
 
 
 ## License
