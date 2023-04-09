@@ -1,75 +1,70 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-//ask the user for length
-function generatePassword() {
-  let passwordLength = parseInt(prompt("How long should the password be?"));
-  if (passwordLength < 8 || passwordLength > 128) {
-    alert("Error, invalid password length. \nPlease choose a password greater than 8 and less than 128 characters");
-  }
-// ask the user for which character to include
-  var includeLowercase = confirm("Include lowercase letters in password?");
-  var includeUppercase = confirm("Include uppercase letters in password");
-  var includeNumbers = confirm("Includes numbers in password");
-  var includeSpecialCharacters = confirm("Includes special characters in password");
+// Generate a random password function here.  since there is confirms boolean asking for user's preference, will have to use if's, else if's function.
+function generatePassword () {
 
-// if user answers no to all confirms, alert error saying at least one confirm needs to be true. if error occurs, repeat confirm messages again for re entry.
+// Ask user for length of password
+    let passwordLength = parseInt(prompt("How many characters should the password be?"));
 
-  if (!includeLowercase && !includeUppercase && !includeNumbers && !includeSpecialCharacters) {
-    alert("Hey Dummy, you must pick one at least to get your password!!!!!!!");
-  }
-  var lowercase = "abcdefghijklmnopqrstuvwxyz";
-  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var numbers = "123456789";
-  const specialCharacter = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-  let skipLcase = "";
-  let skipUcase = "";
-  let skipNumbers = "";
-  let skipSpecial = "";
-// generate a random password
- 
-  var bigLetter = Math.floor(Math.random() * 26);
-  var numb = Math.floor(Math.random() * 9);
-  var special = Math.floor(Math.random() * 35);
-  var littleLetter; 
-  var letters;
-  var char;
-  var finalPass;
-// sync password length with math pull
-  for (var i = 0; i < passwordLength; i++) {
-    //link generate variables to character var's. 
-    // string.charAt(number or value);
 
-    if (includeLowercase) {
-      littleLetter = Math.floor(Math.random() * 26);
-      char = lowercase.charAt(littleLetter); 
-    } else if (includeUppercase) {
-      bigLetter = Math.floor(Math.random() * 26);
-      char = uppercase.charAt(bigLetter);
-    } else if (includeNumbers) {
-      numb = Math.floor(Math.random() * 9);
-      char = numbers.charAt(numbs);
+// If user picked a number < 8 and > 128, alert them that they need to pick an amount within that range. 
+    if (passwordLength < 8 || passwordLength > 128) {
+        alert("Error, invalid password lenght. \nPlease choose a password that is greater than 7 and less than 129 characters");
+        return "";
     }
-    
-   
 
+// Ask user which characters they want to use, lowercase, uppercase, numbers or special characters
+    var lowercasePick = confirm("Do you want lowercase letters to be included in the password?");
+    var uppercasePick = confirm("Do you want uppercase letters included in your password?");
+    var numberPick = confirm("Do you want numbers to be included in your password?");
+    var specialPick = confirm("Do you want special characters to be included in your password?");
 
-    //uppercase.charAt(bigLetter);
-    //numbers.charAt(numb);
-    //specialCharacter.charAt(special);
-    finalPass += char;
-  } 
-//return generated password
-return finalPass;
+// Alert user that they must selected OK for at least one of these criterias, send them message if they don't pick at least one. 
+    if (!lowercasePick && !uppercasePick && !numberPick && !specialPick) {
+        alert("Sorry, please pick at least one type of character for your password.");
+        return "";
+    } 
 
+// Identify the letters, numbers, and special characters that could be chosen for random password. 
+    let passwordCharacters = [];
+    const lowercaseList = "abcdefghijklmnopqrstuvwxyz";
+    const uppercaseList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numberList = "0123456789";
+    const specialList = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+
+// If user picks special characters to be included in password, then the password will add the special character to whatever the password is at, minus any decibels. 
+    if (specialPick) {
+        passwordCharacters = passwordCharacters.concat(specialList.split(""));
+    }
+    if (lowercasePick) {
+        passwordCharacters = passwordCharacters.concat(lowercaseList.split(""));
+    }
+    if (uppercasePick) {
+        passwordCharacters = passwordCharacters.concat(uppercaseList.split(""));
+    }
+    if (numberPick) {
+        passwordCharacters = passwordCharacters.concat(numberList.split(""));
+    }
+
+// Generate random password
+    let results = "";
+    for (var i = 0; i < passwordLength; i++) {
+        let randomIndex = Math.floor(Math.random() * passwordCharacters.length);
+        let randomCharacter = passwordCharacters[randomIndex];
+        results += randomCharacter;
+    }
+
+// Return generated password
+    return results;
 }
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
