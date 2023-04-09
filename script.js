@@ -5,8 +5,7 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword () {
 
 // Ask user for length of password
-    let passwordLength = parseInt(prompt("How many characters should the password be?"));
-
+    let passwordLength = parseInt(prompt("How many characters should the password be? Please pick an amount from 8 through 128 characters."));
 
 // If user picked a number < 8 and > 128, alert them that they need to pick an amount within that range. 
     if (passwordLength < 8 || passwordLength > 128) {
@@ -26,14 +25,14 @@ function generatePassword () {
         return "";
     } 
 
-// Identify the letters, numbers, and special characters that could be chosen for random password. 
+// Identify the letters, numbers, and special characters that could be chosen for random password. Also create a variable for empty index.
     let passwordCharacters = [];
     const lowercaseList = "abcdefghijklmnopqrstuvwxyz";
     const uppercaseList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const numberList = "0123456789";
     const specialList = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
-// If user picks their criteria to be included in password, then the password will add the chosen characters to the password minus any decibels. 
+// If user picks their criteria to be included in password, then the password will add the chosen characters to the password minus any decibels. Randomizing happens next in the math formula. 
     if (specialPick) {
         passwordCharacters = passwordCharacters.concat(specialList.split(""));
     }
@@ -47,8 +46,9 @@ function generatePassword () {
         passwordCharacters = passwordCharacters.concat(numberList.split(""));
     }
 
-// Generate random password
+// Generate random password.  "results" equals to empty string that is to be filled by generator.
     let results = "";
+    
     for (var i = 0; i < passwordLength; i++) {
         let randomIndex = Math.floor(Math.random() * passwordCharacters.length);
         let randomCharacter = passwordCharacters[randomIndex];
