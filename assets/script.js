@@ -33,7 +33,7 @@ function generatePassword () {
     const numberList = "0123456789";
     const specialList = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
-// If user picks special characters to be included in password, then the password will add the special character to whatever the password is at, minus any decibels. 
+// If user picks their criteria to be included in password, then the password will add the chosen characters to the password minus any decibels. 
     if (specialPick) {
         passwordCharacters = passwordCharacters.concat(specialList.split(""));
     }
