@@ -1,9 +1,8 @@
-# homework-03-password-generator
-Javascript Challenge: Password Generator
+# Javascript Challenge: Password Generator
 
-GitHub: https://github.com/minutemin/homework-03-password-generator
+GitHub: https://github.com/minutemin/password-generator
 
-GitPages:   https://minutemin.github.io/homework-03-password-generator/
+GitPages:   https://minutemin.github.io/password-generator/
 
 ![screen shot of portfolio](./assets/ss-password-generator.png)
 
